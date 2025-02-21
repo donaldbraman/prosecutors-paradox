@@ -1,4 +1,4 @@
-# Criminal History Impact Simulation
+# Overpolicing & Criminal History Simulation
 
 An interactive web-based simulation demonstrating the cumulative impact of differential arrest rates and escalating sentencing policies over time. This visualization helps illustrate the potential disparate impacts of overpolicing on different populations.
 
