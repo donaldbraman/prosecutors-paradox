@@ -1,6 +1,7 @@
 # Overpolicing & Criminal History Simulation
 
-An interactive web-based simulation demonstrating the cumulative impact of differential arrest rates and escalating sentencing policies over time. This visualization helps illustrate the potential disparate impacts of overpolicing on different populations.
+An interactive web-based simulation demonstrating the cumulative impact of differential arrest rates and escalating sentencing policies over time. This visualization helps illustrate the potential disparate impacts of overpolicing on different populations. You can view the simulation on GitHub Pages [here](https://donaldbraman.github.io/prosecutors-paradox/).
+
 
 ## Overview
 
@@ -67,10 +68,6 @@ Below the grids, a line chart displays:
 ## Purpose
 
 This simulation serves as an educational tool to visualize how seemingly small differences in arrest rates and sentencing policies can lead to significant disparities in cumulative incarceration rates between populations over time. It is intended to illustrate these effects conceptually rather than provide precise real-world predictions.
-
-## View the Simulation
-
-You can view the simulation on GitHub Pages [here](https://donaldbraman.github.io/prosecutors-paradox/).
 
 ## Recent Changes
 
