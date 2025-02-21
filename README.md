@@ -19,7 +19,7 @@ At the top of the page, users can adjust five key parameters:
 - **Third+ Offense Sentence** (0-10 years): Average sentence length for third or more offenses
 
 ### 2. Population Visualization Grids
-The main visualization area features two side-by-side grid displays:
+The main visualization area features two grid displays:
 - **White Population Grid**: Shows arrest patterns for the white population
 - **Black Population Grid**: Shows arrest patterns for the black population
 
@@ -71,3 +71,13 @@ This simulation serves as an educational tool to visualize how seemingly small d
 ## View the Simulation
 
 You can view the simulation on GitHub Pages [here](https://donaldbraman.github.io/prosecutors-paradox/).
+
+## Recent Changes
+
+The webpage has been updated to be more compact in appearance, reducing the need for a wide screen and scrolling, while maintaining readability and intelligibility. The changes include:
+- Reduced maximum width of the main container to 800px
+- Changed layout of the parameters and visualization containers to a single column
+- Reduced height of the chart container to 300px
+- Reduced width of the parameters container to 100% and maximum width to 600px
+- Reduced width and height of the grid elements to 200px each
+- Reduced minimum width of the legend elements to 100px
