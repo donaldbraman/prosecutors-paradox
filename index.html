@@ -12,42 +12,54 @@
         Each dot represents an individual, with size indicating number of arrests and position randomly assigned.
     </div>
     <div class="parameters-container">
-        <div class="parameter-group">
-            <label for="white_rate">White Arrest Rate:</label>
-            <div class="input-wrapper">
-                <input type="number" id="white_rate" value="1" min="0" max="100" step="1">
-                <span>%</span>
+        <div class="parameters-grid">
+            <div class="parameter-section">
+                <h3>Arrest Rates</h3>
+                <div class="parameter-row">
+                    <div class="parameter-group">
+                        <label for="white_rate">W:</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="white_rate" value="1" min="0" max="100" step="1">
+                            <span>%</span>
+                        </div>
+                    </div>
+                    <div class="parameter-group">
+                        <label for="black_rate">B:</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="black_rate" value="7" min="0" max="100" step="1">
+                            <span>%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tooltip">Probability of arrest per year (0-100%)</div>
             </div>
-            <div class="tooltip">Probability of arrest per year (0-100%)</div>
-        </div>
-        <div class="parameter-group">
-            <label for="black_rate">Black Arrest Rate:</label>
-            <div class="input-wrapper">
-                <input type="number" id="black_rate" value="7" min="0" max="100" step="1">
-                <span>%</span>
+            <div class="parameter-section">
+                <h3>Sentence Lengths</h3>
+                <div class="parameter-row">
+                    <div class="parameter-group">
+                        <label for="avg_first">1st:</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="avg_first" value="0" min="0" max="10" step="0.5">
+                            <span>y</span>
+                        </div>
+                    </div>
+                    <div class="parameter-group">
+                        <label for="avg_second">2nd:</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="avg_second" value="0.5" min="0" max="10" step="0.5">
+                            <span>y</span>
+                        </div>
+                    </div>
+                    <div class="parameter-group">
+                        <label for="avg_third">3rd+:</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="avg_third" value="3" min="0" max="10" step="0.5">
+                            <span>y</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tooltip">Average sentence in years</div>
             </div>
-            <div class="tooltip">Probability of arrest per year (0-100%)</div>
-        </div>
-        <div class="parameter-group">
-            <label for="avg_first">First Offense Sentence:</label>
-            <div class="input-wrapper">
-                <input type="number" id="avg_first" value="0" min="0" max="10" step="0.5">
-            </div>
-            <div class="tooltip">Average sentence in years</div>
-        </div>
-        <div class="parameter-group">
-            <label for="avg_second">Second Offense Sentence:</label>
-            <div class="input-wrapper">
-                <input type="number" id="avg_second" value="0.5" min="0" max="10" step="0.5">
-            </div>
-            <div class="tooltip">Average sentence in years</div>
-        </div>
-        <div class="parameter-group">
-            <label for="avg_third">Third+ Offense Sentence:</label>
-            <div class="input-wrapper">
-                <input type="number" id="avg_third" value="3" min="0" max="10" step="0.5">
-            </div>
-            <div class="tooltip">Average sentence in years</div>
         </div>
         <button id="run_simulation" class="primary-button">Run Single Simulation</button>
     </div>
