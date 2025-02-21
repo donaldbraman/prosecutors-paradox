@@ -12,8 +12,8 @@ The webpage is organized into three main sections:
 
 ### 1. Parameter Controls
 At the top of the page, users can adjust five key parameters:
-- **White Arrest Rate** (0-100%): Probability of arrest per year for the white population
-- **Black Arrest Rate** (0-100%): Probability of arrest per year for the black population
+- **White Arrest Rate** (0-100%): Probability of arrest per year for the white population engaging in some kind of illegal conduct.
+- **Black Arrest Rate** (0-100%): Probability of arrest per year for the black population engaging in the same kind of illegal contact.
 - **First Offense Sentence** (0-10 years): Average sentence length for first-time offenders
 - **Second Offense Sentence** (0-10 years): Average sentence length for second-time offenders
 - **Third+ Offense Sentence** (0-10 years): Average sentence length for third or more offenses
