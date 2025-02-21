@@ -1,0 +1,317 @@
+body {
+    font-family: 'Arial', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.description {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.parameters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.parameter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.parameter-group label {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.parameter-group .input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.parameter-group .input-wrapper span {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.parameter-group input[type="number"] {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 90px;
+    font-size: 14px;
+    color: #2c3e50;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.parameter-group input[type="number"]:focus {
+    border-color: #1976D2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+    outline: none;
+}
+
+.parameter-group .tooltip {
+    color: #666;
+    font-size: 0.8em;
+    margin-top: 2px;
+}
+
+.section-title {
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin: 40px 0 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 25px;
+    margin: 0 auto 40px;
+}
+
+.multiple-sims-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.multiple-sims-container .description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 0 20px;
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.primary-button {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.primary-button:hover {
+    background-color: #1976D2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+}
+
+.primary-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.primary-button:disabled {
+    background-color: #90CAF9;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.primary-button.loading {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.primary-button.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: button-loading-spinner 0.8s linear infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.visualization-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.grid-container {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 12px;
+}
+
+.grid-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.grid {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    background-color: #fff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 10% 10%;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.02);
+    border-radius: 12px;
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+}
+
+.grid:hover {
+    box-shadow: inset 0 0 35px rgba(0,0,0,0.03);
+    border-color: #d0d0d0;
+}
+
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.white-dot {
+    background-color: rgba(33, 150, 243, 0.7);
+    border: 1px solid rgba(33, 150, 243, 0.9);
+}
+
+.black-dot {
+    background-color: rgba(244, 67, 54, 0.7);
+    border: 1px solid rgba(244, 67, 54, 0.9);
+}
+
+.legend {
+    background-color: #fff;
+    padding: 22px 28px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    margin-left: 35px;
+    min-width: 90px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    align-self: center;
+    transition: all 0.3s ease;
+}
+
+.legend:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+    border-color: #d0d0d0;
+}
+
+.legend-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+    font-size: 1em;
+    letter-spacing: 0.4px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 0.95em;
+    color: #34495e;
+    padding: 4px 0;
+    transition: all 0.2s ease;
+}
+
+.legend-item:hover {
+    color: #2c3e50;
+    transform: translateX(2px);
+}
+
+.legend-item:last-child {
+    margin-bottom: 0;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.chart-container {
+    width: 100%;
+    height: 350px;
+    margin-top: 30px;
+    padding: 25px 30px 35px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
