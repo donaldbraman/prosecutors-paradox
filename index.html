@@ -28,15 +28,15 @@
         .parameters-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
             justify-content: center;
             width: 100%;
             max-width: 600px;
-            margin-bottom: 20px;
-            padding: 20px;
+            margin-bottom: 30px;
+            padding: 25px;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .parameter-group {
             display: flex;
@@ -57,10 +57,19 @@
             font-size: 0.9em;
         }
         .parameter-group input[type="number"] {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 80px;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            width: 90px;
+            font-size: 14px;
+            color: #2c3e50;
+            transition: all 0.2s ease;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .parameter-group input[type="number"]:focus {
+            border-color: #1976D2;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+            outline: none;
         }
         .parameter-group .tooltip {
             color: #666;
@@ -121,15 +130,20 @@
         .grid {
             width: 150px;
             height: 150px;
-            border: 1px solid #ddd;
+            border: 1px solid #e0e0e0;
             position: relative;
             background-color: #fff;
-            background-image: linear-gradient(rgba(238, 238, 238, 0.08) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(238, 238, 238, 0.08) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
             background-size: 10% 10%;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.01);
-            border-radius: 8px;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.02);
+            border-radius: 12px;
             margin-bottom: 0;
+            transition: all 0.3s ease;
+        }
+        .grid:hover {
+            box-shadow: inset 0 0 35px rgba(0,0,0,0.03);
+            border-color: #d0d0d0;
         }
         .dot {
             position: absolute;
@@ -147,29 +161,39 @@
         }
         .legend {
             background-color: #fff;
-            padding: 20px 25px;
-            border-radius: 10px;
-            border: 1px solid #eee;
-            margin-left: 30px;
-            min-width: 80px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            padding: 22px 28px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            margin-left: 35px;
+            min-width: 90px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             align-self: center;
+            transition: all 0.3s ease;
+        }
+        .legend:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+            border-color: #d0d0d0;
         }
         .legend-title {
             font-weight: 600;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             text-align: center;
-            color: #333;
-            font-size: 0.95em;
-            letter-spacing: 0.3px;
+            color: #2c3e50;
+            font-size: 1em;
+            letter-spacing: 0.4px;
         }
         .legend-item {
             display: flex;
             align-items: center;
-            margin-bottom: 14px;
-            font-size: 0.9em;
-            color: #444;
-            padding: 3px 0;
+            margin-bottom: 16px;
+            font-size: 0.95em;
+            color: #34495e;
+            padding: 4px 0;
+            transition: all 0.2s ease;
+        }
+        .legend-item:hover {
+            color: #2c3e50;
+            transform: translateX(2px);
         }
         .legend-item:last-child {
             margin-bottom: 0;
@@ -183,13 +207,13 @@
         }
         .chart-container {
             width: 100%;
-            height: 250px;
-            margin-top: 20px;
-            padding: 30px;
+            height: 350px;
+            margin-top: 30px;
+            padding: 25px 30px 35px;
             box-sizing: border-box;
             background-color: #fff;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -449,17 +473,35 @@
                     datasets: [{
                         label: 'White Population',
                         data: whiteData,
-                        borderColor: '#2196F3',
-                        backgroundColor: 'rgba(33, 150, 243, 0.1)',
-                        borderWidth: 2,
-                        tension: 0.4
+                        borderColor: '#1976D2',
+                        backgroundColor: 'rgba(25, 118, 210, 0.15)',
+                        borderWidth: 2.5,
+                        tension: 0.3,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#1976D2',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointHoverBackgroundColor: '#1976D2',
+                        pointHoverBorderColor: '#fff',
+                        pointHoverBorderWidth: 2,
+                        fill: true
                     }, {
                         label: 'Black Population',
                         data: blackData,
-                        borderColor: '#F44336',
-                        backgroundColor: 'rgba(244, 67, 54, 0.1)',
-                        borderWidth: 2,
-                        tension: 0.4
+                        borderColor: '#D32F2F',
+                        backgroundColor: 'rgba(211, 47, 47, 0.15)',
+                        borderWidth: 2.5,
+                        tension: 0.3,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#D32F2F',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointHoverBackgroundColor: '#D32F2F',
+                        pointHoverBorderColor: '#fff',
+                        pointHoverBorderWidth: 2,
+                        fill: true
                     }]
                 },
                 options: {
@@ -473,28 +515,48 @@
                         title: {
                             display: true,
                             text: 'Cumulative Years Sentenced Over Time',
-                            padding: 20,
+                            padding: {top: 10, bottom: 30},
                             font: {
-                                size: 16,
-                                weight: 'bold'
-                            }
+                                size: 18,
+                                weight: '600',
+                                family: "'Arial', 'Helvetica Neue', sans-serif"
+                            },
+                            color: '#2c3e50'
                         },
                         legend: {
                             position: 'top',
+                            align: 'center',
                             labels: {
-                                padding: 20,
+                                padding: 25,
                                 usePointStyle: true,
-                                pointStyle: 'circle'
+                                pointStyle: 'circle',
+                                font: {
+                                    size: 13,
+                                    family: "'Arial', 'Helvetica Neue', sans-serif"
+                                },
+                                color: '#2c3e50'
                             }
                         },
                         tooltip: {
-                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                            titleColor: '#333',
-                            bodyColor: '#666',
-                            borderColor: '#ddd',
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                            titleColor: '#2c3e50',
+                            titleFont: {
+                                size: 14,
+                                weight: '600',
+                                family: "'Arial', 'Helvetica Neue', sans-serif"
+                            },
+                            bodyColor: '#34495e',
+                            bodyFont: {
+                                size: 13,
+                                family: "'Arial', 'Helvetica Neue', sans-serif"
+                            },
+                            borderColor: 'rgba(0,0,0,0.1)',
                             borderWidth: 1,
-                            padding: 10,
+                            padding: 12,
+                            cornerRadius: 6,
                             displayColors: true,
+                            boxWidth: 8,
+                            boxHeight: 8,
                             callbacks: {
                                 label: (context) => {
                                     return `${context.dataset.label}: ${context.parsed.y.toFixed(1)} years`;
@@ -508,26 +570,50 @@
                             title: {
                                 display: true,
                                 text: 'Cumulative Sentence Years',
-                                padding: {top: 10, bottom: 10},
+                                padding: {top: 15, bottom: 15},
                                 font: {
-                                    weight: 'bold'
-                                }
+                                    size: 14,
+                                    weight: '600',
+                                    family: "'Arial', 'Helvetica Neue', sans-serif"
+                                },
+                                color: '#2c3e50'
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12,
+                                    family: "'Arial', 'Helvetica Neue', sans-serif"
+                                },
+                                color: '#34495e',
+                                padding: 8
                             },
                             grid: {
-                                color: '#eee'
+                                color: 'rgba(0,0,0,0.05)',
+                                drawBorder: false
                             }
                         },
                         x: {
                             title: {
                                 display: true,
                                 text: 'Simulation Year',
-                                padding: {top: 10, bottom: 10},
+                                padding: {top: 15, bottom: 15},
                                 font: {
-                                    weight: 'bold'
-                                }
+                                    size: 14,
+                                    weight: '600',
+                                    family: "'Arial', 'Helvetica Neue', sans-serif"
+                                },
+                                color: '#2c3e50'
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12,
+                                    family: "'Arial', 'Helvetica Neue', sans-serif"
+                                },
+                                color: '#34495e',
+                                padding: 8
                             },
                             grid: {
-                                color: '#eee'
+                                color: 'rgba(0,0,0,0.05)',
+                                drawBorder: false
                             }
                         }
                     }
