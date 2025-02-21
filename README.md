@@ -89,3 +89,41 @@ This project uses GitHub Actions to automate the deployment process. Whenever ch
 ### How to Trigger the Deployment
 
 To trigger the deployment process, simply push your changes to the `main` branch. The GitHub Actions workflow will take care of the rest, ensuring that the `gh-pages` branch is updated with the latest version of the project.
+
+### Creating a Personal Access Token (PAT)
+
+To resolve the permission issues encountered during deployment, you need to create a Personal Access Token (PAT) with the necessary permissions:
+
+1. Go to your GitHub account settings.
+2. Navigate to "Developer settings" and then "Personal access tokens".
+3. Click on "Generate new token".
+4. Give your token a descriptive name, such as "GitHub Pages Deployment".
+5. Select the necessary scopes for the token. At a minimum, you need to select:
+   - `repo` (Full control of private repositories)
+   - `workflow` (Update GitHub Action workflows)
+6. Click "Generate token" and copy the generated token. Make sure to store it securely as you won't be able to see it again.
+
+### Storing the PAT as a Secret
+
+Next, you need to store the PAT as a secret in your repository settings:
+
+1. Go to your repository on GitHub.
+2. Click on "Settings" and then "Secrets and variables" in the left sidebar.
+3. Click on "New repository secret".
+4. Name the secret `PERSONAL_ACCESS_TOKEN`.
+5. Paste the PAT you generated earlier into the "Value" field.
+6. Click "Add secret".
+
+### Referencing the PAT in the Workflow File
+
+Finally, update your workflow file to reference the PAT instead of the default `GITHUB_TOKEN`:
+
+1. Open the `.github/workflows/deploy.yml` file in your repository.
+2. Replace the `github_token` in the `Deploy to GitHub Pages` step with `personal_access_token`.
+3. Reference the PAT secret in the `with` section of the `Deploy to GitHub Pages` step:
+
+```yaml
+with:
+  personal_access_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+  publish_dir: ./dist
+```
