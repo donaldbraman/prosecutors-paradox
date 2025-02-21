@@ -4,7 +4,7 @@
   "description": "Criminal History Impact Simulation",
   "main": "index.html",
   "scripts": {
-    "build": "echo 'Building the project...'"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "dependencies": {
     "chart.js": "^3.5.1"
