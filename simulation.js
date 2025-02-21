@@ -350,7 +350,7 @@ function runMultipleSimulations() {
         return;
     }
 
-    const numSimulations = 100;
+    const numSimulations = 1000;
     const whiteSimulations = [];
     const blackSimulations = [];
 
