@@ -1,0 +1,12 @@
+{
+  "name": "prosecutors-paradox",
+  "version": "1.0.0",
+  "description": "Criminal History Impact Simulation",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Building the project...'"
+  },
+  "dependencies": {
+    "chart.js": "^3.5.1"
+  }
+}

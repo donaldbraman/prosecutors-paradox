@@ -25,10 +25,10 @@ jobs:
         run: pwd
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --prefix ./
 
       - name: Build project
-        run: npm run build
+        run: npm run build --prefix ./
 
       - name: Print contents of dist directory
         run: ls -la ./dist
