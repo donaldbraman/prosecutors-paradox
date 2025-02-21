@@ -113,6 +113,7 @@ Next, you need to store the PAT as a secret in your repository settings:
 4. Name the secret `PERSONAL_ACCESS_TOKEN`.
 5. Paste the PAT you generated earlier into the "Value" field.
 6. Click "Add secret".
+7. Ensure the `PERSONAL_ACCESS_TOKEN` secret is correctly set and accessible in the repository settings.
 
 ### Referencing the PAT in the Workflow File
 
@@ -127,3 +128,12 @@ with:
   personal_access_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
   publish_dir: ./dist
 ```
+
+### Verifying the PAT
+
+To verify that the `PERSONAL_ACCESS_TOKEN` secret is correctly set and accessible in the repository settings, follow these steps:
+
+1. Go to your repository on GitHub.
+2. Click on "Settings" and then "Secrets and variables" in the left sidebar.
+3. Ensure that the `PERSONAL_ACCESS_TOKEN` secret is listed and has the correct value.
+4. If the secret is not listed or has an incorrect value, repeat the steps to create and store the PAT as a secret.
