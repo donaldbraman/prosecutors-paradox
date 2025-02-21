@@ -1,4 +1,3 @@
-// DOM Elements
 const whiteRateInput = document.getElementById('white_rate');
 const blackRateInput = document.getElementById('black_rate');
 const avgFirstInput = document.getElementById('avg_first');
@@ -290,7 +289,6 @@ function renderSingleSimChart(whiteData, blackData) {
                 label: 'White Population',
                 data: whiteData,
                 borderColor: '#1976D2',
-                backgroundColor: 'rgba(25, 118, 210, 0.15)',
                 borderWidth: 2.5,
                 tension: 0.3,
                 pointRadius: 4,
@@ -301,12 +299,11 @@ function renderSingleSimChart(whiteData, blackData) {
                 pointHoverBackgroundColor: '#1976D2',
                 pointHoverBorderColor: '#fff',
                 pointHoverBorderWidth: 2,
-                fill: true
+                fill: false
             }, {
                 label: 'Black Population',
                 data: blackData,
                 borderColor: '#D32F2F',
-                backgroundColor: 'rgba(211, 47, 47, 0.15)',
                 borderWidth: 2.5,
                 tension: 0.3,
                 pointRadius: 4,
@@ -317,7 +314,7 @@ function renderSingleSimChart(whiteData, blackData) {
                 pointHoverBackgroundColor: '#D32F2F',
                 pointHoverBorderColor: '#fff',
                 pointHoverBorderWidth: 2,
-                fill: true
+                fill: false
             }]
         },
         options: getChartOptions('Single Simulation Results')
@@ -398,7 +395,6 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
                 label: 'White Population',
                 data: whiteStats.means,
                 borderColor: '#1976D2',
-                backgroundColor: 'rgba(25, 118, 210, 0.15)',
                 borderWidth: 2.5,
                 tension: 0.3,
                 pointRadius: 4,
@@ -409,7 +405,7 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
                 pointHoverBackgroundColor: '#1976D2',
                 pointHoverBorderColor: '#fff',
                 pointHoverBorderWidth: 2,
-                fill: true,
+                fill: false,
                 errorBars: {
                     plus: whiteStats.stdDevs,
                     minus: whiteStats.stdDevs,
@@ -419,18 +415,16 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
                 label: 'Black Population',
                 data: blackStats.means,
                 borderColor: '#D32F2F',
-                backgroundColor: 'rgba(211, 47, 47, 0.15)',
                 borderWidth: 2.5,
                 tension: 0.3,
                 pointRadius: 4,
                 pointHoverRadius: 6,
                 pointBackgroundColor: '#D32F2F',
                 pointBorderColor: '#fff',
-                pointBorderWidth: 2,
                 pointHoverBackgroundColor: '#D32F2F',
                 pointHoverBorderColor: '#fff',
                 pointHoverBorderWidth: 2,
-                fill: true,
+                fill: false,
                 errorBars: {
                     plus: blackStats.stdDevs,
                     minus: blackStats.stdDevs,
