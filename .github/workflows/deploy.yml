@@ -18,14 +18,26 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Print Node.js version
+        run: node -v
+
+      - name: Print working directory
+        run: pwd
+
       - name: Install dependencies
         run: npm install
 
       - name: Build project
         run: npm run build
 
+      - name: Print contents of dist directory
+        run: ls -la ./dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+
+      - name: Print deployment logs
+        run: cat /path/to/deployment/logs
