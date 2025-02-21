@@ -67,3 +67,7 @@ Below the grids, a line chart displays:
 ## Purpose
 
 This simulation serves as an educational tool to visualize how seemingly small differences in arrest rates and sentencing policies can lead to significant disparities in cumulative incarceration rates between populations over time. It is intended to illustrate these effects conceptually rather than provide precise real-world predictions.
+
+## View the Simulation
+
+You can view the simulation on GitHub Pages [here](https://donaldbraman.github.io/prosecutors-paradox/).
