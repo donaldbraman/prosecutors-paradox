@@ -2,7 +2,6 @@
   "name": "prosecutors-paradox",
   "version": "1.0.0",
   "description": "Criminal History Impact Simulation",
-  "main": "index.html",
   "scripts": {
     "build": "parcel build index.html --dist-dir ./dist"
   },
