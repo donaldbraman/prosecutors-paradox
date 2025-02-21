@@ -81,3 +81,11 @@ The webpage has been updated to be more compact in appearance, reducing the need
 - Reduced width of the parameters container to 100% and maximum width to 600px
 - Reduced width and height of the grid elements to 200px each
 - Reduced minimum width of the legend elements to 100px
+
+## Automated Deployment Process
+
+This project uses GitHub Actions to automate the deployment process. Whenever changes are pushed to the `main` branch, the workflow will automatically build the project and deploy it to the `gh-pages` branch.
+
+### How to Trigger the Deployment
+
+To trigger the deployment process, simply push your changes to the `main` branch. The GitHub Actions workflow will take care of the rest, ensuring that the `gh-pages` branch is updated with the latest version of the project.
