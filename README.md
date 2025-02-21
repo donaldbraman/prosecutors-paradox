@@ -95,7 +95,7 @@ To trigger the deployment process, simply push your changes to the `main` branch
 To resolve the permission issues encountered during deployment, you need to create a Personal Access Token (PAT) with the necessary permissions:
 
 1. Go to your GitHub account settings.
-2. Navigate to "Developer settings" and then "Personal access tokens".
+2. Navigate to "Developer settings" and then "Personal access tokens" in "classic" mode.
 3. Click on "Generate new token".
 4. Give your token a descriptive name, such as "GitHub Pages Deployment".
 5. Select the necessary scopes for the token. At a minimum, you need to select:
