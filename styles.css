@@ -364,12 +364,24 @@ h1 {
     justify-content: center;
 }
 
+.multiple-sims-container .chart-container {
+    width: 616px;
+    height: 616px;
+}
+
 .chart-container canvas {
     width: 300px !important;
     height: 300px !important;
     aspect-ratio: 1 !important;
     max-width: 300px !important;
     max-height: 300px !important;
+}
+
+.multiple-sims-container .chart-container canvas {
+    width: 600px !important;
+    height: 600px !important;
+    max-width: 600px !important;
+    max-height: 600px !important;
 }
 
 .section-title {

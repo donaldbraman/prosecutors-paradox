@@ -380,12 +380,65 @@ function runMultipleSimulations() {
     renderMultipleSimsChart(whiteStats, blackStats);
 }
 
+// Define custom plugin for ratio text
+const ratioTextPlugin = {
+    id: 'ratioText',
+    beforeDraw: (chart, args, options) => {
+        const {ctx, chartArea: {left, top, right, bottom}} = chart;
+        
+        if (!options.text) return;
+        
+        // Save context state
+        ctx.save();
+        
+        // Set text style
+        ctx.font = '16px Arial, "Helvetica Neue", sans-serif';
+        ctx.fillStyle = '#2c3e50';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        
+        // Calculate position (5% from left, 5% from top)
+        const x = left + (right - left) * 0.05;
+        const y = top + (bottom - top) * 0.05;
+        
+        // Draw background
+        const textLines = options.text.split('\n');
+        const lineHeight = 28;
+        const padding = 20;
+        const textWidth = Math.max(...textLines.map(line => ctx.measureText(line).width));
+        
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.fillRect(
+            x - padding,
+            y - padding,
+            textWidth + padding * 2,
+            (textLines.length * lineHeight) + padding * 2
+        );
+        
+        // Draw text
+        ctx.fillStyle = '#2c3e50';
+        textLines.forEach((line, i) => {
+            ctx.fillText(line, x, y + (i * lineHeight));
+        });
+        
+        // Restore context state
+        ctx.restore();
+    }
+};
+
+// Register the plugin
+Chart.register(ratioTextPlugin);
+
 function renderMultipleSimsChart(whiteStats, blackStats) {
     if (multipleChart) {
         multipleChart.destroy();
     }
 
     const labels = Array.from({ length: 20 }, (_, i) => `Year ${i + 1}`);
+    
+    // Calculate black-to-white ratio at year 20
+    const blackToWhiteRatio = blackStats.means[19] / whiteStats.means[19];
+    const ratioText = `For every year a white person spends incarcerated\nfor criminal conduct, a black person engaging in\nthe same conduct spends ${blackToWhiteRatio.toFixed(1)} years\nincarcerated.`;
     
     multipleChart = new Chart(multipleChartCtx, {
         type: 'line',
@@ -432,7 +485,15 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
                 }
             }]
         },
-        options: getChartOptions('Multiple Simulations Results (with Standard Deviation)')
+        options: {
+            ...getChartOptions('Multiple Simulations Results (with Standard Deviation)'),
+            plugins: {
+                ...getChartOptions('').plugins,
+                ratioText: {
+                    text: ratioText
+                }
+            }
+        }
     });
 }
 
