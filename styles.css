@@ -191,39 +191,49 @@ h1 {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    padding: 25px;
+    padding: 30px 20px;
     margin: 0 auto 40px;
 }
 
-.visualization-container {
+.simulation-layout {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 40px;
     gap: 20px;
-}
-
-.grid-container {
-    display: flex;
-    gap: 25px;
     align-items: center;
-    padding: 10px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 12px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.grid-section {
+.left-panel {
+    flex: 0 0 308px;
+    display: flex;
+    justify-content: center;
+}
+
+.population-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, 150px);
+    gap: 8px;
+    width: 308px;
+    padding-top: 24px;
+}
+
+.grid-box {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .grid-title {
     text-align: center;
     font-weight: bold;
-    margin-bottom: 15px;
     color: #333;
-    font-size: 1.1em;
+    font-size: 0.85em;
+    position: absolute;
+    top: -24px;
+    width: 100%;
+    white-space: nowrap;
 }
 
 .grid {
@@ -236,8 +246,7 @@ h1 {
                     linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
     background-size: 10% 10%;
     box-shadow: inset 0 0 30px rgba(0,0,0,0.02);
-    border-radius: 12px;
-    margin-bottom: 0;
+    border-radius: 8px;
     transition: all 0.3s ease;
 }
 
@@ -264,15 +273,19 @@ h1 {
 }
 
 .legend {
+    width: 150px;
+    height: 150px;
     background-color: #fff;
-    padding: 22px 28px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 8px;
     border: 1px solid #e0e0e0;
-    margin-left: 35px;
-    min-width: 90px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    align-self: center;
     transition: all 0.3s ease;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
 }
 
 .legend:hover {
@@ -282,20 +295,23 @@ h1 {
 
 .legend-title {
     font-weight: 600;
-    margin-bottom: 20px;
     text-align: center;
     color: #2c3e50;
-    font-size: 1em;
-    letter-spacing: 0.4px;
+    font-size: 0.85em;
+    position: absolute;
+    top: -24px;
+    width: 100%;
+    left: 0;
+    white-space: nowrap;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
-    font-size: 0.95em;
+    margin-bottom: 8px;
+    font-size: 0.8em;
     color: #34495e;
-    padding: 4px 0;
+    padding: 3px 0;
     transition: all 0.2s ease;
 }
 
@@ -309,22 +325,51 @@ h1 {
 }
 
 .legend-dot {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    margin-right: 14px;
+    margin-right: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.chart-container {
+.right-panel {
+    flex: 0 0 308px;
+    position: relative;
+}
+
+.right-panel::before {
+    content: "Single Simulation Results";
+    position: absolute;
+    top: -24px;
     width: 100%;
-    height: 350px;
-    margin-top: 30px;
-    padding: 25px 30px 35px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.chart-container {
+    width: 308px;
+    height: 308px;
+    padding: 4px;
     box-sizing: border-box;
     background-color: #fff;
-    border-radius: 12px;
+    border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin: 24px 0 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-container canvas {
+    width: 300px !important;
+    height: 300px !important;
+    aspect-ratio: 1 !important;
+    max-width: 300px !important;
+    max-height: 300px !important;
 }
 
 .section-title {

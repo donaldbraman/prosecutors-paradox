@@ -64,52 +64,58 @@
         <button id="run_simulation" class="primary-button">Run Single Simulation</button>
     </div>
     <div class="main-container">
-        <div class="visualization-container">
-            <div class="grid-container">
-                <div class="grid-section">
-                    <div class="grid-title">White Population</div>
-                    <div class="grid" id="white_grid"></div>
-                </div>
-                <div class="legend">
-                    <div class="legend-title">Arrest History</div>
-                    <div class="legend-item">
-                        <div class="legend-dot white-dot" style="width: 8px; height: 8px;"></div>
-                        <span>1 Arrest</span>
+        <div class="simulation-layout">
+            <div class="left-panel">
+                <div class="population-grid">
+                    <div class="grid-box">
+                        <div class="grid-title">White Population</div>
+                        <div class="grid" id="white_grid"></div>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-dot white-dot" style="width: 12px; height: 12px;"></div>
-                        <span>2 Arrests</span>
+                    <div class="grid-box">
+                        <div class="grid-title">Legend</div>
+                        <div class="legend white-legend">
+                            <div class="legend-item">
+                                <div class="legend-dot white-dot" style="width: 8px; height: 8px;"></div>
+                                <span>1 Arrest</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot white-dot" style="width: 12px; height: 12px;"></div>
+                                <span>2 Arrests</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot white-dot" style="width: 16px; height: 16px;"></div>
+                                <span>3+ Arrests</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-dot white-dot" style="width: 16px; height: 16px;"></div>
-                        <span>3+ Arrests</span>
+                    <div class="grid-box">
+                        <div class="grid-title">Black Population</div>
+                        <div class="grid" id="black_grid"></div>
+                    </div>
+                    <div class="grid-box">
+                        <div class="grid-title">Legend</div>
+                        <div class="legend black-legend">
+                            <div class="legend-item">
+                                <div class="legend-dot black-dot" style="width: 8px; height: 8px;"></div>
+                                <span>1 Arrest</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot black-dot" style="width: 12px; height: 12px;"></div>
+                                <span>2 Arrests</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot black-dot" style="width: 16px; height: 16px;"></div>
+                                <span>3+ Arrests</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="grid-container">
-                <div class="grid-section">
-                    <div class="grid-title">Black Population</div>
-                    <div class="grid" id="black_grid"></div>
-                </div>
-                <div class="legend">
-                    <div class="legend-title">Arrest History</div>
-                    <div class="legend-item">
-                        <div class="legend-dot black-dot" style="width: 8px; height: 8px;"></div>
-                        <span>1 Arrest</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-dot black-dot" style="width: 12px; height: 12px;"></div>
-                        <span>2 Arrests</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-dot black-dot" style="width: 16px; height: 16px;"></div>
-                        <span>3+ Arrests</span>
-                    </div>
+            <div class="right-panel">
+                <div class="chart-container">
+                    <canvas id="single_sim_chart"></canvas>
                 </div>
             </div>
-        </div>
-        <div class="chart-container">
-            <canvas id="single_sim_chart"></canvas>
         </div>
     </div>
     <div class="section-title">Multiple Simulations Analysis</div>
