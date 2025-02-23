@@ -127,10 +127,9 @@ class Visualizer:
         black_to_white_ratio = black_stats['means'][-1] / white_stats['means'][-1]
         
         # Add descriptive text to upper left
-        text = (f"For every year a white person spends incarcerated\n"
-                f"for criminal conduct, a black person engaging in\n"
-                f"the same conduct spends {black_to_white_ratio:.1f} years\n"
-                f"incarcerated.")
+        text = (f"For every year people in the White cohort spend incarcerated\n"
+                f"for criminal conduct, poeple in the Black cohort engaging in\n"
+                f"the same conduct spend {black_to_white_ratio:.1f} years incarcerated.")
         
         # Position text in upper left with some padding
         ax.text(0.02, 0.98, text,

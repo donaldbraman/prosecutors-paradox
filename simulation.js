@@ -438,7 +438,7 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
     
     // Calculate black-to-white ratio at year 20
     const blackToWhiteRatio = blackStats.means[19] / whiteStats.means[19];
-    const ratioText = `For every year a white person spends incarcerated\nfor criminal conduct, a black person engaging in\nthe same conduct spends ${blackToWhiteRatio.toFixed(1)} years\nincarcerated.`;
+    const ratioText = `For every year that people in the White cohort spend incarcerated\nfor criminal conduct, people in the Black cohort engaging in\nthe same conduct spend ${blackToWhiteRatio.toFixed(1)} years incarcerated.`;
     
     multipleChart = new Chart(multipleChartCtx, {
         type: 'line',
