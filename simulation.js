@@ -126,7 +126,7 @@ function getChartOptions(titleText) {
         },
         plugins: {
             title: {
-                display: true,
+                display: false,
                 text: titleText,
                 padding: {top: 10, bottom: 30},
                 font: {
@@ -286,7 +286,7 @@ function renderSingleSimChart(whiteData, blackData) {
         data: {
             labels: labels,
             datasets: [{
-                label: 'White Population',
+                label: 'Non-targetted Cohort',
                 data: whiteData,
                 borderColor: '#1976D2',
                 borderWidth: 2.5,
@@ -301,7 +301,7 @@ function renderSingleSimChart(whiteData, blackData) {
                 pointHoverBorderWidth: 2,
                 fill: false
             }, {
-                label: 'Black Population',
+                label: 'Targetted Cohort',
                 data: blackData,
                 borderColor: '#D32F2F',
                 borderWidth: 2.5,
@@ -347,7 +347,7 @@ function runMultipleSimulations() {
         return;
     }
 
-    const numSimulations = 1000;
+    const numSimulations = 10000;
     const whiteSimulations = [];
     const blackSimulations = [];
 
@@ -438,7 +438,7 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
     
     // Calculate black-to-white ratio at year 20
     const blackToWhiteRatio = blackStats.means[19] / whiteStats.means[19];
-    const ratioText = `For every year that people in the White cohort spend incarcerated\nfor criminal conduct, people in the Black cohort engaging in\nthe same conduct spend ${blackToWhiteRatio.toFixed(1)} years incarcerated.`;
+    const ratioText = `For every year that people in the normal cohort\nare incarcerated for criminal conduct, people in the\ntargetted cohort engaging in the same conduct\nspend ${blackToWhiteRatio.toFixed(1)} years incarcerated.`;
     
     multipleChart = new Chart(multipleChartCtx, {
         type: 'line',
