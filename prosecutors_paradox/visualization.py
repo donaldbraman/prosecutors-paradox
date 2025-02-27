@@ -79,8 +79,8 @@ class Visualizer:
         # Population grids (2x2 grid on top)
         ax_white_pop = fig.add_subplot(gs_top[0, 0])
         ax_black_pop = fig.add_subplot(gs_top[1, 0])
-        white_color = self.setup_population_plot(ax_white_pop, 'White Population', True)
-        black_color = self.setup_population_plot(ax_black_pop, 'Black Population', False)
+        white_color = self.setup_population_plot(ax_white_pop, 'Comparison Population', True)
+        black_color = self.setup_population_plot(ax_black_pop, 'Targetted Population', False)
         
         # Draw populations
         self.draw_population(white_pop, ax_white_pop, white_color)
@@ -89,8 +89,8 @@ class Visualizer:
         # Legend for arrest counts with better positioning
         ax_white_legend = fig.add_subplot(gs_top[0, 1])
         ax_black_legend = fig.add_subplot(gs_top[1, 1])
-        self._add_legend(ax_white_legend, 'White Population Legend', True)
-        self._add_legend(ax_black_legend, 'Black Population Legend', False)
+        self._add_legend(ax_white_legend, 'Comparison Population Legend', True)
+        self._add_legend(ax_black_legend, 'Targetted Population Legend', False)
 
         # Time series plot below with proper spacing
         gs_bottom = fig.add_gridspec(1, 1, top=0.35, bottom=0.1,
@@ -108,14 +108,14 @@ class Visualizer:
         
         # Plot with error bands
         ax.plot(x, white_stats['means'], color=self.white_color,
-                label='White Population', linewidth=2)
+                label='Comparison Population', linewidth=2)
         ax.fill_between(x,
                        np.array(white_stats['means']) - np.array(white_stats['std_devs']),
                        np.array(white_stats['means']) + np.array(white_stats['std_devs']),
                        color=self.white_color, alpha=0.2)
         
         ax.plot(x, black_stats['means'], color=self.black_color,
-                label='Black Population', linewidth=2)
+                label='Targetted Population', linewidth=2)
         ax.fill_between(x,
                        np.array(black_stats['means']) - np.array(black_stats['std_devs']),
                        np.array(black_stats['means']) + np.array(black_stats['std_devs']),
@@ -177,9 +177,9 @@ class Visualizer:
         """Plot time series data for single simulation."""
         x = np.arange(1, len(white_data) + 1)
         
-        ax.plot(x, white_data, color=self.white_color, label='White Population',
+        ax.plot(x, white_data, color=self.white_color, label='Comparison Population',
                 marker='o', markersize=4, linewidth=2)
-        ax.plot(x, black_data, color=self.black_color, label='Black Population',
+        ax.plot(x, black_data, color=self.black_color, label='Targetted Population',
                 marker='o', markersize=4, linewidth=2)
         
         self._style_axis(ax, title)

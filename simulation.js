@@ -286,7 +286,7 @@ function renderSingleSimChart(whiteData, blackData) {
         data: {
             labels: labels,
             datasets: [{
-                label: 'Non-targetted Cohort',
+                label: 'Comparison Cohort',
                 data: whiteData,
                 borderColor: '#1976D2',
                 borderWidth: 2.5,
@@ -301,7 +301,7 @@ function renderSingleSimChart(whiteData, blackData) {
                 pointHoverBorderWidth: 2,
                 fill: false
             }, {
-                label: 'Targetted Cohort',
+                label: 'Targeted Cohort',
                 data: blackData,
                 borderColor: '#D32F2F',
                 borderWidth: 2.5,
@@ -438,14 +438,14 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
     
     // Calculate black-to-white ratio at year 20
     const blackToWhiteRatio = blackStats.means[19] / whiteStats.means[19];
-    const ratioText = `For every year that people in the normal cohort\nare incarcerated for criminal conduct, people in the\ntargetted cohort engaging in the same conduct\nspend ${blackToWhiteRatio.toFixed(1)} years incarcerated.`;
+    const ratioText = `For every year that people in the comparison cohort\nare incarcerated for criminal conduct, people in the\ntargeted cohort engaging in the same conduct\nspend ${blackToWhiteRatio.toFixed(1)} years incarcerated.`;
     
     multipleChart = new Chart(multipleChartCtx, {
         type: 'line',
         data: {
             labels: labels,
             datasets: [{
-                label: 'White Population',
+                label: 'Comparison Population',
                 data: whiteStats.means,
                 borderColor: '#1976D2',
                 borderWidth: 2.5,
@@ -465,7 +465,7 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
                     color: 'rgba(25, 118, 210, 0.3)'
                 }
             }, {
-                label: 'Black Population',
+                label: 'Targeted Population',
                 data: blackStats.means,
                 borderColor: '#D32F2F',
                 borderWidth: 2.5,
