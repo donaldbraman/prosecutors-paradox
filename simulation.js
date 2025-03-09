@@ -286,21 +286,6 @@ function renderSingleSimChart(comparisonData, targetData) {
         data: {
             labels: labels,
             datasets: [{
-                label: 'Comparison Cohort',
-                data: comparisonData,
-                borderColor: '#1976D2',
-                borderWidth: 2.5,
-                tension: 0.3,
-                pointRadius: 4,
-                pointHoverRadius: 6,
-                pointBackgroundColor: '#1976D2',
-                pointBorderColor: '#fff',
-                pointBorderWidth: 2,
-                pointHoverBackgroundColor: '#1976D2',
-                pointHoverBorderColor: '#fff',
-                pointHoverBorderWidth: 2,
-                fill: false
-            }, {
                 label: 'Targeted Cohort',
                 data: targetData,
                 borderColor: '#D32F2F',
@@ -312,6 +297,21 @@ function renderSingleSimChart(comparisonData, targetData) {
                 pointBorderColor: '#fff',
                 pointBorderWidth: 2,
                 pointHoverBackgroundColor: '#D32F2F',
+                pointHoverBorderColor: '#fff',
+                pointHoverBorderWidth: 2,
+                fill: false
+            }, {
+                label: 'Comparison Cohort',
+                data: comparisonData,
+                borderColor: '#1976D2',
+                borderWidth: 2.5,
+                tension: 0.3,
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                pointBackgroundColor: '#1976D2',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointHoverBackgroundColor: '#1976D2',
                 pointHoverBorderColor: '#fff',
                 pointHoverBorderWidth: 2,
                 fill: false
@@ -445,26 +445,6 @@ function renderMultipleSimsChart(comparisonStats, targetStats) {
         data: {
             labels: labels,
             datasets: [{
-                label: 'Comparison Cohort',
-                data: comparisonStats.means,
-                borderColor: '#1976D2',
-                borderWidth: 2.5,
-                tension: 0.3,
-                pointRadius: 4,
-                pointHoverRadius: 6,
-                pointBackgroundColor: '#1976D2',
-                pointBorderColor: '#fff',
-                pointBorderWidth: 2,
-                pointHoverBackgroundColor: '#1976D2',
-                pointHoverBorderColor: '#fff',
-                pointHoverBorderWidth: 2,
-                fill: false,
-                errorBars: {
-                    plus: comparisonStats.stdDevs,
-                    minus: comparisonStats.stdDevs,
-                    color: 'rgba(25, 118, 210, 0.3)'
-                }
-            }, {
                 label: 'Targeted Cohort',
                 data: targetStats.means,
                 borderColor: '#D32F2F',
@@ -474,6 +454,7 @@ function renderMultipleSimsChart(comparisonStats, targetStats) {
                 pointHoverRadius: 6,
                 pointBackgroundColor: '#D32F2F',
                 pointBorderColor: '#fff',
+                pointBorderWidth: 2,
                 pointHoverBackgroundColor: '#D32F2F',
                 pointHoverBorderColor: '#fff',
                 pointHoverBorderWidth: 2,
@@ -482,6 +463,25 @@ function renderMultipleSimsChart(comparisonStats, targetStats) {
                     plus: targetStats.stdDevs,
                     minus: targetStats.stdDevs,
                     color: 'rgba(211, 47, 47, 0.3)'
+                }
+            }, {
+                label: 'Comparison Cohort',
+                data: comparisonStats.means,
+                borderColor: '#1976D2',
+                borderWidth: 2.5,
+                tension: 0.3,
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                pointBackgroundColor: '#1976D2',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#1976D2',
+                pointHoverBorderColor: '#fff',
+                pointHoverBorderWidth: 2,
+                fill: false,
+                errorBars: {
+                    plus: comparisonStats.stdDevs,
+                    minus: comparisonStats.stdDevs,
+                    color: 'rgba(25, 118, 210, 0.3)'
                 }
             }]
         },
