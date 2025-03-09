@@ -126,9 +126,9 @@ function getChartOptions(titleText) {
         },
         plugins: {
             title: {
+                display: true,
                 display: false,
                 text: titleText,
-                padding: {top: 10, bottom: 30},
                 font: {
                     size: 18,
                     weight: '600',
@@ -137,16 +137,22 @@ function getChartOptions(titleText) {
                 color: '#2c3e50'
             },
             legend: {
-                position: 'top',
+                position: 'top', 
                 align: 'center',
                 labels: {
-                    padding: 25,
-                    usePointStyle: true,
+                    padding: 8,
+                    usePointStyle: true, 
                     pointStyle: 'circle',
                     font: {
                         size: 13,
                         family: "'Arial', 'Helvetica Neue', sans-serif"
                     },
+                    generateLabels: function(chart) {
+                        // This ensures the legend items maintain their horizontal layout
+                        return Chart.defaults.plugins.legend.labels.generateLabels(chart);
+                    },
+                    boxWidth: 8,
+                    boxHeight: 8,
                     color: '#2c3e50'
                 }
             },
@@ -188,13 +194,23 @@ function getChartOptions(titleText) {
                 }
             }
         },
+        // Add layout configuration to properly position elements
+        layout: {
+            padding: {
+                // Add padding at the top for the legend
+                top: 10,
+                bottom: 20,
+                left: 15,
+                right: 0
+            },
+        },
         scales: {
             y: {
                 beginAtZero: true,
                 title: {
                     display: true,
                     text: 'Cumulative Sentence Years',
-                    padding: {top: 15, bottom: 15},
+                    padding: {top: 5, bottom: 5},
                     font: {
                         size: 14,
                         weight: '600',
@@ -208,7 +224,7 @@ function getChartOptions(titleText) {
                         family: "'Arial', 'Helvetica Neue', sans-serif"
                     },
                     color: '#34495e',
-                    padding: 8
+                    padding: 5
                 },
                 grid: {
                     color: 'rgba(0,0,0,0.05)',
@@ -219,7 +235,7 @@ function getChartOptions(titleText) {
                 title: {
                     display: true,
                     text: 'Simulation Year',
-                    padding: {top: 15, bottom: 15},
+                    padding: {top: 5, bottom: 5},
                     font: {
                         size: 14,
                         weight: '600',
@@ -233,7 +249,7 @@ function getChartOptions(titleText) {
                         family: "'Arial', 'Helvetica Neue', sans-serif"
                     },
                     color: '#34495e',
-                    padding: 8
+                    padding: 5
                 },
                 grid: {
                     color: 'rgba(0,0,0,0.05)',
