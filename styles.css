@@ -209,7 +209,7 @@ h1 {
     justify-content: center;
 }
 
-.population-grid {
+.cohort-grid {
     display: grid;
     grid-template-columns: repeat(2, 150px);
     grid-template-rows: repeat(2, 150px);

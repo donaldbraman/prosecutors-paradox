@@ -445,7 +445,7 @@ function renderMultipleSimsChart(comparisonStats, targetStats) {
         data: {
             labels: labels,
             datasets: [{
-                label: 'Comparison Population',
+                label: 'Comparison Cohort',
                 data: comparisonStats.means,
                 borderColor: '#1976D2',
                 borderWidth: 2.5,
@@ -465,7 +465,7 @@ function renderMultipleSimsChart(comparisonStats, targetStats) {
                     color: 'rgba(25, 118, 210, 0.3)'
                 }
             }, {
-                label: 'Targeted Population',
+                label: 'Targeted Cohort',
                 data: targetStats.means,
                 borderColor: '#D32F2F',
                 borderWidth: 2.5,
