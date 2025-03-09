@@ -212,10 +212,10 @@ h1 {
 .cohort-grid {
     display: grid;
     grid-template-columns: repeat(2, 150px);
-    grid-template-rows: repeat(2, 150px);
-    gap: 8px;
+    grid-template-rows: repeat(2, 150px); 
+    gap: 30px;
     width: 308px;
-    padding-top: 24px;
+    padding-top: 36px;
 }
 
 .grid-box {
@@ -231,7 +231,7 @@ h1 {
     color: #333;
     font-size: 0.85em;
     position: absolute;
-    top: -24px;
+    top: -20px;
     width: 100%;
     white-space: nowrap;
 }
@@ -299,7 +299,7 @@ h1 {
     color: #2c3e50;
     font-size: 0.85em;
     position: absolute;
-    top: -24px;
+    top: -20px;
     width: 100%;
     left: 0;
     white-space: nowrap;
