@@ -1,11 +1,11 @@
-const whiteRateInput = document.getElementById('white_rate');
-const blackRateInput = document.getElementById('black_rate');
+const comparisonRateInput = document.getElementById('comparison_rate');
+const targetRateInput = document.getElementById('target_rate');
 const avgFirstInput = document.getElementById('avg_first');
 const avgSecondInput = document.getElementById('avg_second');
 const avgThirdInput = document.getElementById('avg_third');
 const runSimulationButton = document.getElementById('run_simulation');
-const whiteGrid = document.getElementById('white_grid');
-const blackGrid = document.getElementById('black_grid');
+const comparisonGrid = document.getElementById('comparison_grid');
+const targetGrid = document.getElementById('target_grid');
 
 // Chart Elements
 const singleChartCanvas = document.getElementById('single_sim_chart');
@@ -15,14 +15,14 @@ const multipleChartCtx = multipleChartCanvas.getContext('2d');
 
 // State Variables
 const gridSize = 10;
-let whitePeople = [];
-let blackPeople = [];
+let comparisonPeople = [];
+let targetPeople = [];
 let singleChart;
 let multipleChart;
 
 // Input validation
 function validateInputs() {
-    const inputs = [whiteRateInput, blackRateInput, avgFirstInput, avgSecondInput, avgThirdInput];
+    const inputs = [comparisonRateInput, targetRateInput, avgFirstInput, avgSecondInput, avgThirdInput];
     let isValid = true;
     inputs.forEach(input => {
         const value = parseFloat(input.value);
@@ -46,14 +46,14 @@ function validateInputs() {
 }
 
 function initializePeople() {
-    whitePeople = Array.from({ length: gridSize * gridSize }, () => ({ 
+    comparisonPeople = Array.from({ length: gridSize * gridSize }, () => ({ 
         arrests: 0, 
         sentenceServed: 0, 
         sentenceRemaining: 0,
         x: Math.random(),
         y: Math.random()
     }));
-    blackPeople = Array.from({ length: gridSize * gridSize }, () => ({ 
+    targetPeople = Array.from({ length: gridSize * gridSize }, () => ({ 
         arrests: 0, 
         sentenceServed: 0, 
         sentenceRemaining: 0,
@@ -62,12 +62,12 @@ function initializePeople() {
     }));
 }
 
-function drawGrid(gridElement, people, isWhite) {
+function drawGrid(gridElement, people, isComparison) {
     gridElement.innerHTML = '';
     people.forEach(person => {
         if (person.arrests > 0) {
             const dot = document.createElement('div');
-            dot.className = `dot ${isWhite ? 'white-dot' : 'black-dot'}`;
+            dot.className = `dot ${isComparison ? 'comparison-dot' : 'target-dot'}`;
             const baseSize = 8;
             const dotSize = baseSize + (person.arrests - 1) * 4;
             dot.style.width = `${dotSize}px`;
@@ -251,30 +251,30 @@ function runSimulation() {
     }
 
     initializePeople();
-    const whiteRate = parseFloat(whiteRateInput.value) / 100;
-    const blackRate = parseFloat(blackRateInput.value) / 100;
-    let whiteCumulativeSentences = [];
-    let blackCumulativeSentences = [];
+    const comparisonRate = parseFloat(comparisonRateInput.value) / 100;
+    const targetRate = parseFloat(targetRateInput.value) / 100;
+    let comparisonCumulativeSentences = [];
+    let targetCumulativeSentences = [];
 
     for (let year = 0; year < 20; year++) {
-        simulateArrests(whitePeople, whiteRate);
-        simulateArrests(blackPeople, blackRate);
-        updateSentences(whitePeople);
-        updateSentences(blackPeople);
+        simulateArrests(comparisonPeople, comparisonRate);
+        simulateArrests(targetPeople, targetRate);
+        updateSentences(comparisonPeople);
+        updateSentences(targetPeople);
 
-        const totalWhiteSentences = whitePeople.reduce((sum, person) => sum + person.sentenceServed, 0);
-        const totalBlackSentences = blackPeople.reduce((sum, person) => sum + person.sentenceServed, 0);
-        whiteCumulativeSentences.push(totalWhiteSentences);
-        blackCumulativeSentences.push(totalBlackSentences);
+        const totalComparisonSentences = comparisonPeople.reduce((sum, person) => sum + person.sentenceServed, 0);
+        const totalTargetSentences = targetPeople.reduce((sum, person) => sum + person.sentenceServed, 0);
+        comparisonCumulativeSentences.push(totalComparisonSentences);
+        targetCumulativeSentences.push(totalTargetSentences);
 
-        drawGrid(whiteGrid, whitePeople, true);
-        drawGrid(blackGrid, blackPeople, false);
+        drawGrid(comparisonGrid, comparisonPeople, true);
+        drawGrid(targetGrid, targetPeople, false);
     }
 
-    renderSingleSimChart(whiteCumulativeSentences, blackCumulativeSentences);
+    renderSingleSimChart(comparisonCumulativeSentences, targetCumulativeSentences);
 }
 
-function renderSingleSimChart(whiteData, blackData) {
+function renderSingleSimChart(comparisonData, targetData) {
     if (singleChart) {
         singleChart.destroy();
     }
@@ -287,7 +287,7 @@ function renderSingleSimChart(whiteData, blackData) {
             labels: labels,
             datasets: [{
                 label: 'Comparison Cohort',
-                data: whiteData,
+                data: comparisonData,
                 borderColor: '#1976D2',
                 borderWidth: 2.5,
                 tension: 0.3,
@@ -302,7 +302,7 @@ function renderSingleSimChart(whiteData, blackData) {
                 fill: false
             }, {
                 label: 'Targeted Cohort',
-                data: blackData,
+                data: targetData,
                 borderColor: '#D32F2F',
                 borderWidth: 2.5,
                 tension: 0.3,
@@ -348,36 +348,36 @@ function runMultipleSimulations() {
     }
 
     const numSimulations = 10000;
-    const whiteSimulations = [];
-    const blackSimulations = [];
+    const comparisonSimulations = [];
+    const targetSimulations = [];
 
     for (let i = 0; i < numSimulations; i++) {
         initializePeople();
-        const whiteRate = parseFloat(whiteRateInput.value) / 100;
-        const blackRate = parseFloat(blackRateInput.value) / 100;
-        let whiteCumulativeSentences = [];
-        let blackCumulativeSentences = [];
+        const comparisonRate = parseFloat(comparisonRateInput.value) / 100;
+        const targetRate = parseFloat(targetRateInput.value) / 100;
+        let comparisonCumulativeSentences = [];
+        let targetCumulativeSentences = [];
 
         for (let year = 0; year < 20; year++) {
-            simulateArrests(whitePeople, whiteRate);
-            simulateArrests(blackPeople, blackRate);
-            updateSentences(whitePeople);
-            updateSentences(blackPeople);
+            simulateArrests(comparisonPeople, comparisonRate);
+            simulateArrests(targetPeople, targetRate);
+            updateSentences(comparisonPeople);
+            updateSentences(targetPeople);
 
-            const totalWhiteSentences = whitePeople.reduce((sum, person) => sum + person.sentenceServed, 0);
-            const totalBlackSentences = blackPeople.reduce((sum, person) => sum + person.sentenceServed, 0);
-            whiteCumulativeSentences.push(totalWhiteSentences);
-            blackCumulativeSentences.push(totalBlackSentences);
+            const totalComparisonSentences = comparisonPeople.reduce((sum, person) => sum + person.sentenceServed, 0);
+            const totalTargetSentences = targetPeople.reduce((sum, person) => sum + person.sentenceServed, 0);
+            comparisonCumulativeSentences.push(totalComparisonSentences);
+            targetCumulativeSentences.push(totalTargetSentences);
         }
 
-        whiteSimulations.push(whiteCumulativeSentences);
-        blackSimulations.push(blackCumulativeSentences);
+        comparisonSimulations.push(comparisonCumulativeSentences);
+        targetSimulations.push(targetCumulativeSentences);
     }
 
-    const whiteStats = calculateStats(whiteSimulations);
-    const blackStats = calculateStats(blackSimulations);
+    const comparisonStats = calculateStats(comparisonSimulations);
+    const targetStats = calculateStats(targetSimulations);
 
-    renderMultipleSimsChart(whiteStats, blackStats);
+    renderMultipleSimsChart(comparisonStats, targetStats);
 }
 
 // Define custom plugin for ratio text
@@ -429,16 +429,16 @@ const ratioTextPlugin = {
 // Register the plugin
 Chart.register(ratioTextPlugin);
 
-function renderMultipleSimsChart(whiteStats, blackStats) {
+function renderMultipleSimsChart(comparisonStats, targetStats) {
     if (multipleChart) {
         multipleChart.destroy();
     }
 
     const labels = Array.from({ length: 20 }, (_, i) => `Year ${i + 1}`);
     
-    // Calculate black-to-white ratio at year 20
-    const blackToWhiteRatio = blackStats.means[19] / whiteStats.means[19];
-    const ratioText = `For every year that people in the comparison cohort\nare incarcerated for criminal conduct, people in the\ntargeted cohort engaging in the same conduct\nspend ${blackToWhiteRatio.toFixed(1)} years incarcerated.`;
+    // Calculate target-to-comparison ratio at year 20
+    const targetToComparisonRatio = targetStats.means[19] / comparisonStats.means[19];
+    const ratioText = `For every year that people in the comparison cohort\nare incarcerated for criminal conduct, people in the\ntargeted cohort engaging in the same conduct\nspend ${targetToComparisonRatio.toFixed(1)} years incarcerated.`;
     
     multipleChart = new Chart(multipleChartCtx, {
         type: 'line',
@@ -446,7 +446,7 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
             labels: labels,
             datasets: [{
                 label: 'Comparison Population',
-                data: whiteStats.means,
+                data: comparisonStats.means,
                 borderColor: '#1976D2',
                 borderWidth: 2.5,
                 tension: 0.3,
@@ -460,13 +460,13 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
                 pointHoverBorderWidth: 2,
                 fill: false,
                 errorBars: {
-                    plus: whiteStats.stdDevs,
-                    minus: whiteStats.stdDevs,
+                    plus: comparisonStats.stdDevs,
+                    minus: comparisonStats.stdDevs,
                     color: 'rgba(25, 118, 210, 0.3)'
                 }
             }, {
                 label: 'Targeted Population',
-                data: blackStats.means,
+                data: targetStats.means,
                 borderColor: '#D32F2F',
                 borderWidth: 2.5,
                 tension: 0.3,
@@ -479,8 +479,8 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
                 pointHoverBorderWidth: 2,
                 fill: false,
                 errorBars: {
-                    plus: blackStats.stdDevs,
-                    minus: blackStats.stdDevs,
+                    plus: targetStats.stdDevs,
+                    minus: targetStats.stdDevs,
                     color: 'rgba(211, 47, 47, 0.3)'
                 }
             }]
@@ -500,8 +500,8 @@ function renderMultipleSimsChart(whiteStats, blackStats) {
 // Add event listeners
 runSimulationButton.addEventListener('click', () => {
     runSimulation();
-    drawGrid(whiteGrid, whitePeople, true);
-    drawGrid(blackGrid, blackPeople, false);
+    drawGrid(comparisonGrid, comparisonPeople, true);
+    drawGrid(targetGrid, targetPeople, false);
 });
 
 document.getElementById('run_multiple_simulations').addEventListener('click', () => {

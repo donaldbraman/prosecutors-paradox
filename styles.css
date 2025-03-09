@@ -262,12 +262,12 @@ h1 {
     transition: all 0.3s ease;
 }
 
-.white-dot {
+.comparison-dot {
     background-color: rgba(33, 150, 243, 0.7);
     border: 1px solid rgba(33, 150, 243, 0.9);
 }
 
-.black-dot {
+.target-dot {
     background-color: rgba(244, 67, 54, 0.7);
     border: 1px solid rgba(244, 67, 54, 0.9);
 }

@@ -17,16 +17,16 @@
                 <h3>Arrest Rates</h3>
                 <div class="parameter-row">
                     <div class="parameter-group">
-                        <label for="white_rate">W:</label>
+                        <label for="comparison_rate">C:</label>
                         <div class="input-wrapper">
-                            <input type="number" id="white_rate" value="1" min="0" max="100" step="1">
+                            <input type="number" id="comparison_rate" value="1" min="0" max="100" step="1">
                             <span>%</span>
                         </div>
                     </div>
                     <div class="parameter-group">
-                        <label for="black_rate">B:</label>
+                        <label for="target_rate">T:</label>
                         <div class="input-wrapper">
-                            <input type="number" id="black_rate" value="7" min="0" max="100" step="1">
+                            <input type="number" id="target_rate" value="7" min="0" max="100" step="1">
                             <span>%</span>
                         </div>
                     </div>
@@ -69,42 +69,42 @@
                 <div class="population-grid">
                     <div class="grid-box">
                         <div class="grid-title">Comparison Cohort</div>
-                        <div class="grid" id="white_grid"></div>
+                        <div class="grid" id="comparison_grid"></div>
                     </div>
                     <div class="grid-box">
                         <div class="grid-title">Legend</div>
-                        <div class="legend white-legend">
+                        <div class="legend comparison-legend">
                             <div class="legend-item">
-                                <div class="legend-dot white-dot" style="width: 8px; height: 8px;"></div>
+                                <div class="legend-dot comparison-dot" style="width: 8px; height: 8px;"></div>
                                 <span>1 Arrest</span>
                             </div>
                             <div class="legend-item">
-                                <div class="legend-dot white-dot" style="width: 12px; height: 12px;"></div>
+                                <div class="legend-dot comparison-dot" style="width: 12px; height: 12px;"></div>
                                 <span>2 Arrests</span>
                             </div>
                             <div class="legend-item">
-                                <div class="legend-dot white-dot" style="width: 16px; height: 16px;"></div>
+                                <div class="legend-dot comparison-dot" style="width: 16px; height: 16px;"></div>
                                 <span>3+ Arrests</span>
                             </div>
                         </div>
                     </div>
                     <div class="grid-box">
-                        <div class="grid-title">Targetted Cohort</div>
-                        <div class="grid" id="black_grid"></div>
+                        <div class="grid-title">Targeted Cohort</div>
+                        <div class="grid" id="target_grid"></div>
                     </div>
                     <div class="grid-box">
                         <div class="grid-title">Legend</div>
-                        <div class="legend black-legend">
+                        <div class="legend target-legend">
                             <div class="legend-item">
-                                <div class="legend-dot black-dot" style="width: 8px; height: 8px;"></div>
+                                <div class="legend-dot target-dot" style="width: 8px; height: 8px;"></div>
                                 <span>1 Arrest</span>
                             </div>
                             <div class="legend-item">
-                                <div class="legend-dot black-dot" style="width: 12px; height: 12px;"></div>
+                                <div class="legend-dot target-dot" style="width: 12px; height: 12px;"></div>
                                 <span>2 Arrests</span>
                             </div>
                             <div class="legend-item">
-                                <div class="legend-dot black-dot" style="width: 16px; height: 16px;"></div>
+                                <div class="legend-dot target-dot" style="width: 16px; height: 16px;"></div>
                                 <span>3+ Arrests</span>
                             </div>
                         </div>

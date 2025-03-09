@@ -13,16 +13,16 @@ The webpage is organized into three main sections:
 
 ### 1. Parameter Controls
 At the top of the page, users can adjust five key parameters:
-- **White Arrest Rate** (0-100%): Probability of arrest per year for the white population engaging in some kind of illegal conduct.
-- **Black Arrest Rate** (0-100%): Probability of arrest per year for the black population engaging in the same kind of illegal contact.
+- **Comparison Arrest Rate** (0-100%): Probability of arrest per year for the comparison population engaging in some kind of illegal conduct.
+- **Target Arrest Rate** (0-100%): Probability of arrest per year for the target population engaging in the same kind of illegal contact.
 - **First Offense Sentence** (0-10 years): Average sentence length for first-time offenders
 - **Second Offense Sentence** (0-10 years): Average sentence length for second-time offenders
 - **Third+ Offense Sentence** (0-10 years): Average sentence length for third or more offenses
 
 ### 2. Population Visualization Grids
 The main visualization area features two grid displays:
-- **White Population Grid**: Shows arrest patterns for the white population
-- **Black Population Grid**: Shows arrest patterns for the black population
+- **Comparison Population Grid**: Shows arrest patterns for the comparison population
+- **Target Population Grid**: Shows arrest patterns for the target population
 
 Each grid represents 100 individuals (10x10) where:
 - Individuals are represented by dots
@@ -31,13 +31,13 @@ Each grid represents 100 individuals (10x10) where:
   - Medium dot: 2 arrests
   - Large dot: 3+ arrests
 - Dot colors:
-  - Blue dots: White population
-  - Red dots: Black population
+  - Blue dots: Comparison population
+  - Red dots: Target population
 
 ### 3. Cumulative Impact Chart
 Below the grids, a line chart displays:
 - The cumulative years sentenced over a 20-year simulation period
-- Separate lines for white and black populations
+- Separate lines for comparison and target populations
 - Interactive tooltips showing exact values at each year
 - Y-axis showing total sentence years
 - X-axis showing simulation years (1-20)
