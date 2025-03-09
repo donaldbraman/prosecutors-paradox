@@ -197,8 +197,8 @@ h1 {
 
 .simulation-layout {
     display: flex;
-    gap: 20px;
-    align-items: center;
+    gap: 40px;
+    align-items: flex-start;
     justify-content: center;
     margin-top: 20px;
 }
@@ -207,6 +207,7 @@ h1 {
     flex: 0 0 308px;
     display: flex;
     justify-content: center;
+    margin-top: 24px;
 }
 
 .cohort-grid {
@@ -285,7 +286,7 @@ h1 {
     display: flex;
     flex-direction: column;
     position: relative;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .legend:hover {
@@ -308,10 +309,10 @@ h1 {
 .legend-item {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     font-size: 0.8em;
     color: #34495e;
-    padding: 3px 0;
+    padding: 2px 0;
     transition: all 0.2s ease;
 }
 
@@ -333,8 +334,9 @@ h1 {
 }
 
 .right-panel {
-    flex: 0 0 308px;
+    flex: 0 0 370px;
     position: relative;
+    margin-top: 24px;
 }
 
 .right-panel::before {
@@ -350,14 +352,15 @@ h1 {
 }
 
 .chart-container {
-    width: 308px;
-    height: 308px;
-    padding: 4px;
+    width: 370px;
+    height: 370px;
+    padding: 4px 4px 20px 4px;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: #fcfcfc;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    margin: 24px 0 0;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    margin: 0;
     position: relative;
     display: flex;
     align-items: center;
@@ -370,11 +373,11 @@ h1 {
 }
 
 .chart-container canvas {
-    width: 300px !important;
-    height: 300px !important;
+    width: 360px !important;
+    height: 360px !important;
     aspect-ratio: 1 !important;
-    max-width: 300px !important;
-    max-height: 300px !important;
+    max-width: 360px !important;
+    max-height: 360px !important;
 }
 
 .multiple-sims-container .chart-container canvas {
