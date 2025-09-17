@@ -1,5 +1,3 @@
- conversion appropriate suggested that she may have written this reasonably forceful that's a little bit surprising court order in order to get the attention. The attorney general and say look at this whether pursuing litigation could be could be submitted staffing or both and it seems like there's options to hire some experts that should be cheaper. They just might not hav, but I think Elon Musk revealed so far they might not feel like to pursue this grant in California has been mostly disputes like government.# Overpolicing & Criminal History Simulation
-
 An interactive web-based simulation demonstrating the cumulative impact of differential arrest rates and escalating sentencing policies over time. This visualization helps illustrate the potential disparate impacts of overpolicing on different cohorts. You can view the simulation on GitHub Pages [here](https://donaldbraman.github.io/prosecutors-paradox/).
 
 
