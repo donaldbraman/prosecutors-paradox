@@ -1,0 +1,414 @@
+body {
+    font-family: 'Arial', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.description {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.parameters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.parameters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.parameter-section {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.parameter-section:hover {
+    background-color: #f0f2f5;
+}
+
+.parameter-section h3 {
+    margin: 0 0 12px 0;
+    font-size: 1em;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.parameter-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.parameter-group {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.parameter-group label {
+    color: #555;
+    font-size: 0.9em;
+    min-width: 35px;
+    text-align: right;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+.input-wrapper span {
+    color: #555;
+    font-size: 0.9em;
+    min-width: 15px;
+}
+
+.parameter-group input[type="number"] {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+    min-width: 50px;
+    font-size: 14px;
+    color: #2c3e50;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.parameter-group input[type="number"]:focus {
+    border-color: #1976D2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+    outline: none;
+}
+
+.tooltip {
+    color: #666;
+    font-size: 0.8em;
+    margin-top: 2px;
+}
+
+.primary-button {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    text-align: center;
+    margin: 10px 0;
+    align-self: center;
+}
+
+.primary-button:hover {
+    background-color: #1976D2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+}
+
+.primary-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.primary-button:disabled {
+    background-color: #90CAF9;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.primary-button.loading {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.primary-button.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: button-loading-spinner 0.8s linear infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 30px 20px;
+    margin: 0 auto 40px;
+}
+
+.simulation-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.left-panel {
+    flex: 0 0 308px;
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.cohort-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, 150px); 
+    gap: 30px;
+    width: 308px;
+    padding-top: 36px;
+}
+
+.grid-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.grid-title {
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.85em;
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.grid {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    background-color: #fff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 10% 10%;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.02);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.grid:hover {
+    box-shadow: inset 0 0 35px rgba(0,0,0,0.03);
+    border-color: #d0d0d0;
+}
+
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.comparison-dot {
+    background-color: rgba(33, 150, 243, 0.7);
+    border: 1px solid rgba(33, 150, 243, 0.9);
+}
+
+.target-dot {
+    background-color: rgba(244, 67, 54, 0.7);
+    border: 1px solid rgba(244, 67, 54, 0.9);
+}
+
+.legend {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: flex-start;
+}
+
+.legend:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+    border-color: #d0d0d0;
+}
+
+.legend-title {
+    font-weight: 600;
+    text-align: center;
+    color: #2c3e50;
+    font-size: 0.85em;
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    left: 0;
+    white-space: nowrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 0.8em;
+    color: #34495e;
+    padding: 2px 0;
+    transition: all 0.2s ease;
+}
+
+.legend-item:hover {
+    color: #2c3e50;
+    transform: translateX(2px);
+}
+
+.legend-item:last-child {
+    margin-bottom: 0;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.right-panel {
+    flex: 0 0 370px;
+    position: relative;
+    margin-top: 24px;
+}
+
+.right-panel::before {
+    content: "Single Simulation Results";
+    position: absolute;
+    top: -24px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.chart-container {
+    width: 370px;
+    height: 370px;
+    padding: 4px 4px 20px 4px;
+    box-sizing: border-box;
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.multiple-sims-container .chart-container {
+    width: 616px;
+    height: 616px;
+}
+
+.chart-container canvas {
+    width: 360px !important;
+    height: 360px !important;
+    aspect-ratio: 1 !important;
+    max-width: 360px !important;
+    max-height: 360px !important;
+}
+
+.multiple-sims-container .chart-container canvas {
+    width: 600px !important;
+    height: 600px !important;
+    max-width: 600px !important;
+    max-height: 600px !important;
+}
+
+.section-title {
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin: 40px 0 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.multiple-sims-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.multiple-sims-container .description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 0 20px;
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
